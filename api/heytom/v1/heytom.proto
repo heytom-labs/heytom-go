@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package heytom.v1;
+
+option go_package = "github.com/heytom-labs/heytom-go/api/heytom/v1;v1";
+
+import "google/api/annotations.proto";
+
+service Heytom {
+  rpc CreateGreeter (CreateGreeterRequest) returns (CreateGreeterReply) {
+    option (google.api.http) = {
+      post: "/v1/greeter"
+      body: "*"
+    };
+  }
+  rpc GetGreeter (GetGreeterRequest) returns (GetGreeterReply) {
+    option (google.api.http) = {
+      get: "/v1/greeter/{id}"
+    };
+  }
+}
+
+message CreateGreeterRequest {
+  string name = 1;
+}
+
+message CreateGreeterReply {
+  int64 id = 1;
+  string name = 2;
+}
+
+message GetGreeterRequest {
+  int64 id = 1;
+}
+
+message GetGreeterReply {
+  int64 id = 1;
+  string name = 2;
+}
