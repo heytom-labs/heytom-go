@@ -2,4 +2,5 @@ package service
 
 import "github.com/google/wire"
 
-var ProviderSet = wire.NewSet(NewHeytomService)
+// ProviderSet is service providers.
+var ProviderSet = wire.NewSet(NewGreeterService)

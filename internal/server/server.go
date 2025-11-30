@@ -1,5 +1,8 @@
 package server
 
-import "github.com/google/wire"
+import (
+	"github.com/google/wire"
+)
 
-var ProviderSet = wire.NewSet(NewHTTPServer, NewGRPCServer)
+// ProviderSet is server providers.
+var ProviderSet = wire.NewSet(NewGRPCServer, NewHTTPServer)
